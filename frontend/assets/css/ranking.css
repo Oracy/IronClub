@@ -1,0 +1,164 @@
+:root {
+    /* cores base e destaque */
+    --primary-color:     #1B1B1B;  /* cabeçalho da tabela */
+    --background-color:  #121212;  /* fundo geral */
+    --row-odd-color:     #1A1A1A;  /* linhas ímpares */
+    --row-even-color:    #141414;  /* linhas pares */
+    --text-color:        #E5E5E5;  /* texto principal */
+    --border-color:      #333333;  /* bordas sutis */
+    --highlight-color:   #FFCC00;  /* amarelo ouro para realces */
+  
+    /* cores do pódio */
+    --podium1-bg:        #3D3000;
+    --podium2-bg:        #2D2D2D;
+    --podium3-bg:        #3D2C1F;
+  }
+  
+  /* reset básico */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* corpo */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* container geral */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* cabeçalho da página */
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  header h1 {
+    color: var(--highlight-color);
+    margin-bottom: 0.5rem;
+  }
+  header p {
+    color: var(--text-color);
+  }
+  
+  /* painel de ranking */
+  .ranking-container {
+    background: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+  
+  /* tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+  }
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    color: var(--text-color);
+  }
+  th {
+    background-color: var(--primary-color);
+    font-weight: 600;
+  }
+  /* remove linha cinza sob o cabeçalho */
+  #rankingTable thead th,
+  #rankingTable thead tr {
+    border-bottom: none;
+  }
+  
+  /* cores das linhas */
+  #rankingBody tr:nth-child(odd)  { background-color: var(--row-odd-color);  }
+  #rankingBody tr:nth-child(even) { background-color: var(--row-even-color); }
+  /* hover sutil */
+  #rankingBody tr:hover {
+    background-color: #2a2a2a;
+  }
+  
+  /* bloco de informação do membro */
+  .member-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .member-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .member-name {
+    font-weight: 500;
+  }
+  
+  /* destaque FitCoins */
+  .fitcoins {
+    font-weight: 600;
+    color: var(--highlight-color);
+  }
+  
+  /* ─── PÓDIO ─── */
+  #rankingBody tr:nth-child(1) {
+    background: var(--podium1-bg);
+    color: var(--highlight-color);
+    font-size: 1.5rem;
+    transform: translateY(-12px);
+  }
+  #rankingBody tr:nth-child(1) td:first-child::before {
+    content: '🏆';
+    margin-right: 0.5rem;
+  }
+  
+  #rankingBody tr:nth-child(2) {
+    background: var(--podium2-bg);
+    color: var(--highlight-color);
+    font-size: 1.3rem;
+    transform: translateY(-6px);
+  }
+  #rankingBody tr:nth-child(2) td:first-child::before {
+    content: '🥈';
+    margin-right: 0.5rem;
+  }
+  
+  #rankingBody tr:nth-child(3) {
+    background: var(--podium3-bg);
+    color: var(--highlight-color);
+    font-size: 1.2rem;
+    transform: translateY(-3px);
+  }
+  #rankingBody tr:nth-child(3) td:first-child::before {
+    content: '🥉';
+    margin-right: 0.5rem;
+  }
+  
+  /* separador após o pódio */
+  #rankingBody tr:nth-child(4) td {
+    border-top: 2px solid var(--highlight-color);
+    padding-top: 1rem;
+  }
+  
+  /* responsivo */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+    th, td {
+      padding: 0.75rem;
+    }
+    .member-photo {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
